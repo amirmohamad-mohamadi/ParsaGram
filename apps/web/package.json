@@ -26,6 +26,7 @@
     "zod": "^4.6.2"
   },
   "devDependencies": {
+    "@babel/preset-typescript": "^8.0.1",
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@tailwindcss/postcss": "^4.3.3",
