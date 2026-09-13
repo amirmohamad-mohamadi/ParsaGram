@@ -1,18 +1,11 @@
 import { Module } from '@nestjs/common';
-import { createObserveModule } from '@nestjs/observe';
+import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller.js';
 import { AppService } from './app.service.js';
-
-export const { ObserveModule, ObserveInstrument } = createObserveModule();
+import { PrismaModule } from './prisma/prisma.module.js';
 
 @Module({
-  imports: [
-    ObserveModule.forRoot({
-      appKey: 'YOUR_APP_KEY',
-      appSecret: 'YOUR_APP_SECRET',
-      serviceId: 'backend',
-    }),
-  ],
+  imports: [ConfigModule.forRoot({ isGlobal: true }), PrismaModule],
   controllers: [AppController],
   providers: [AppService],
 })
